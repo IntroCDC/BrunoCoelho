@@ -3,6 +3,9 @@ package br.com.introcdc.global.commands;
 import br.com.introcdc.global.command.ConsoleCommandBase;
 import br.com.introcdc.global.command.result.CommandResult;
 
+/**
+ * Global command to shutdown the client
+ */
 public class CommandShutdown extends ConsoleCommandBase {
 
 	public CommandShutdown() {

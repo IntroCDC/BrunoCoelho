@@ -5,6 +5,9 @@ import br.com.introcdc.agenda.contact.service.ContactService;
 import br.com.introcdc.global.command.ConsoleCommandBase;
 import br.com.introcdc.global.command.result.CommandResult;
 
+/**
+ * Class for command to edit contact
+ */
 public class CommandEditContact extends ConsoleCommandBase {
 
 	public CommandEditContact() {

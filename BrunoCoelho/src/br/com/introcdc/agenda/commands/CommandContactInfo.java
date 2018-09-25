@@ -5,6 +5,9 @@ import br.com.introcdc.agenda.contact.service.ContactService;
 import br.com.introcdc.global.command.ConsoleCommandBase;
 import br.com.introcdc.global.command.result.CommandResult;
 
+/**
+ * Class for command to get contact info
+ */
 public class CommandContactInfo extends ConsoleCommandBase {
 
 	public CommandContactInfo() {

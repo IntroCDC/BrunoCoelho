@@ -3,6 +3,9 @@ package br.com.introcdc.global.commands;
 import br.com.introcdc.global.command.ConsoleCommandBase;
 import br.com.introcdc.global.command.result.CommandResult;
 
+/**
+ * Default help command
+ */
 public class CommandHelp extends ConsoleCommandBase {
 
 	public CommandHelp() {

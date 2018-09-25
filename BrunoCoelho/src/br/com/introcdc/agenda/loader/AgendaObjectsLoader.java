@@ -11,6 +11,9 @@ import br.com.introcdc.agenda.commands.CommandDeleteContact;
 import br.com.introcdc.agenda.commands.CommandEditContact;
 import br.com.introcdc.agenda.commands.CommandListContacts;
 
+/**
+ * Objects loader for commands and contacts file creator
+ */
 public class AgendaObjectsLoader {
 	
 	public static void loadCommands() {

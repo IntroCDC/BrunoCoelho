@@ -13,6 +13,9 @@ import com.google.gson.JsonParser;
 
 import br.com.introcdc.agenda.contact.service.ContactService;
 
+/**
+ * The contact base class
+ */
 public class Contact {
 
 	private static Map<String, Contact> allContacts = new HashMap<>();
@@ -49,6 +52,9 @@ public class Contact {
 		this.number = number;
 	}
 
+	/**
+	 * Load in local cache all contacts from local file
+	 */
 	public static void loadContacts() {
 		try {
 			JsonParser parser = new JsonParser();
@@ -63,6 +69,9 @@ public class Contact {
 		}
 	}
 
+	/**
+	 * Save all local cache to local file
+	 */
 	public static void saveContactFile() {
 		JsonArray jsonArray = new JsonArray();
 		for (Contact contact : allContacts.values()) {

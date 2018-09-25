@@ -5,7 +5,10 @@ import br.com.introcdc.agenda.loader.AgendaObjectsLoader;
 import br.com.introcdc.global.command.process.ConsoleCommandProcessor;
 
 public class AgendaMain {
-	
+
+	/**
+	 * Agenda starter
+	 */
 	public static void main(String[] args) {
 		System.out.println("Agenda FLF 2018\n");
 		AgendaObjectsLoader.loadCommands();
@@ -13,5 +16,5 @@ public class AgendaMain {
 		Contact.loadContacts();
 		ConsoleCommandProcessor.enableConsole();
 	}
-	
+
 }

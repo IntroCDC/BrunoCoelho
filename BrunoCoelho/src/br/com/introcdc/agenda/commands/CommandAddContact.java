@@ -4,6 +4,9 @@ import br.com.introcdc.agenda.contact.service.ContactService;
 import br.com.introcdc.global.command.ConsoleCommandBase;
 import br.com.introcdc.global.command.result.CommandResult;
 
+/**
+ * Class for command to add contact
+ */
 public class CommandAddContact extends ConsoleCommandBase {
 
 	public CommandAddContact() {

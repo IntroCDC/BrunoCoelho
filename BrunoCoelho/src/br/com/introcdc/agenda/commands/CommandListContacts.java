@@ -4,6 +4,9 @@ import br.com.introcdc.agenda.contact.Contact;
 import br.com.introcdc.global.command.ConsoleCommandBase;
 import br.com.introcdc.global.command.result.CommandResult;
 
+/**
+ * Class for command to list all contacts
+ */
 public class CommandListContacts extends ConsoleCommandBase {
 
 	public CommandListContacts() {

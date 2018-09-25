@@ -8,6 +8,9 @@ import br.com.introcdc.global.command.result.CommandResult;
 import br.com.introcdc.global.commands.CommandHelp;
 import br.com.introcdc.global.commands.CommandShutdown;
 
+/**
+ * Starting and stop the console
+ */
 public class ConsoleCommandProcessor {
 	
 	private static boolean consoleEnabled = false;

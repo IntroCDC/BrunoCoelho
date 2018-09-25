@@ -5,6 +5,9 @@ import java.util.Map;
 
 import br.com.introcdc.global.command.result.CommandResult;
 
+/**
+ * Base to create commands and use
+ */
 public abstract class ConsoleCommandBase {
 
 	private static Map<String, ConsoleCommandBase> commands = new HashMap<>();
@@ -12,7 +15,7 @@ public abstract class ConsoleCommandBase {
 	public static Map<String, ConsoleCommandBase> getCommands() {
 		return commands;
 	}
-	
+
 	public static ConsoleCommandBase getCommand(String command) {
 		if (commands.containsKey(command)) {
 			return commands.get(command);
@@ -33,7 +36,7 @@ public abstract class ConsoleCommandBase {
 	public String getCommand() {
 		return command;
 	}
-	
+
 	public String getCorrectUse() {
 		return correctUse;
 	}
