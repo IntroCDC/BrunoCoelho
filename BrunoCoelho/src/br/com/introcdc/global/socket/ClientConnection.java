@@ -7,8 +7,6 @@ import java.io.IOException;
 import java.net.Socket;
 import java.net.SocketException;
 
-import br.com.introcdc.global.components.LogComponents;
-
 public abstract class ClientConnection {
 
 	private DataInputStream dataInputStream;
@@ -59,19 +57,16 @@ public abstract class ClientConnection {
 						processSocketCommand(getSocket(), dataInputStream);
 					}
 				}
-				LogComponents.printConsoleMessage(
-						"[SS] Recebimento de comandos do servidor " + getServerName() + " desligado...");
+				System.out.println("[SS] Recebimento de comandos do servidor " + getServerName() + " desligado...");
 			} catch (Exception exception) {
 				if (!(exception instanceof EOFException) && !(exception instanceof InterruptedException)
 						&& !(exception instanceof IOException) && !(exception instanceof SocketException)) {
-					LogComponents.logException(exception,
-							"Ocorreu um erro no listener de mensagens socket do client '" + getServerName() + "'");
+					exception.printStackTrace();
 				}
 				try {
 					getSocket().close();
 				} catch (IOException excepion) {
-					LogComponents.logException(exception,
-							"Ocorreu um erro ao fechar a conexão do socket '" + getServerName() + "'...");
+					exception.printStackTrace();
 				}
 				thread.interrupt();
 			}

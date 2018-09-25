@@ -9,7 +9,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import br.com.introcdc.global.GlobalUtils;
-import br.com.introcdc.global.components.LogComponents;
 import br.com.introcdc.global.socket.buffer.SocketBuffer;
 
 public class SocketClient implements SocketBuffer {
@@ -29,7 +28,7 @@ public class SocketClient implements SocketBuffer {
 	}
 
 	public void connect() throws IOException {
-		LogComponents.printConsoleMessage("[SS] Conectando-se ao servidor socket...");
+		System.out.println("[SS] Conectando-se ao servidor socket...");
 		socketConnection = new Socket(GlobalUtils.SOCKET_IP, GlobalUtils.SOCKET_PORT);
 		socketConnection.setKeepAlive(true);
 	}
@@ -63,9 +62,9 @@ public class SocketClient implements SocketBuffer {
 	}
 
 	public void registry() throws Exception {
-		LogComponents.printConsoleMessage("[SS] Registrando servidor...");
+		System.out.println("[SS] Registrando servidor...");
 		sendSocketMessage(null, "ServerConnect", getServerName(), String.valueOf(System.currentTimeMillis()));
-		LogComponents.printConsoleMessage("[SS] Servidor registrado!");
+		System.out.println("[SS] Servidor registrado!");
 	}
 
 	/**
@@ -114,9 +113,7 @@ public class SocketClient implements SocketBuffer {
 					if (exception instanceof EOFException) {
 						System.exit(0);
 					} else {
-						LogComponents.logException(exception,
-								"Ocorreu um erro no listener de mensagens socket server to client do clint '"
-										+ getServerName() + "'");
+						exception.printStackTrace();
 					}
 				}
 			}
@@ -132,7 +129,7 @@ public class SocketClient implements SocketBuffer {
 					sendSocketMessage(null, "ReplyBack");
 					Thread.sleep(60000);
 				} catch (Exception exception) {
-					LogComponents.logException(exception, "Ocorreu um erro ao atualizar o KeepAlive do servidor!");
+					exception.printStackTrace();
 				}
 			}
 		}).start();

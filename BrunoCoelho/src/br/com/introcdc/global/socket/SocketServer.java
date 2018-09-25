@@ -13,7 +13,6 @@ import java.util.List;
 import java.util.Map;
 
 import br.com.introcdc.global.GlobalUtils;
-import br.com.introcdc.global.components.LogComponents;
 import br.com.introcdc.global.socket.buffer.SocketBuffer;
 
 public abstract class SocketServer implements SocketBuffer {
@@ -49,14 +48,13 @@ public abstract class SocketServer implements SocketBuffer {
 					getSocketConnectionList().get(serverName).disconnect();
 					getSocketConnectionList().remove(serverName);
 				}
-				LogComponents.printConsoleMessage("[SS] Recebendo conexão... (" + serverName + ")");
+				System.out.println("[SS] Recebendo conexão... (" + serverName + ")");
 				try {
 					if (!socket.getKeepAlive()) {
 						socket.setKeepAlive(true);
 					}
 				} catch (Exception exception) {
-					LogComponents.logException(exception,
-							"Ocorreu um erro ao definir o socket client '" + serverName + "' como keep alive!");
+					exception.printStackTrace();
 				}
 				getSocketConnectionList().put(serverName, new ClientConnection(socket, serverName) {
 					@Override
@@ -64,8 +62,8 @@ public abstract class SocketServer implements SocketBuffer {
 						preProcessCommand(socket, input);
 					}
 				});
-				LogComponents.printConsoleMessage("[SS] Conexão estabelecida com o servidor " + serverName
-						+ " via Socket! (" + (System.currentTimeMillis() - Long.valueOf(readString(input))) + "ms)");
+				System.out.println("[SS] Conexão estabelecida com o servidor " + serverName + " via Socket! ("
+						+ (System.currentTimeMillis() - Long.valueOf(readString(input))) + "ms)");
 			} else if (command.equalsIgnoreCase("Echo")) {
 				String target = readString(input);
 				int commandsSize = input.readInt();
@@ -80,18 +78,18 @@ public abstract class SocketServer implements SocketBuffer {
 				try {
 					sendSocketMessage(socket, "ConnectionReceived");
 				} catch (Exception exception) {
-					LogComponents.logException(exception, "Ocorreu um erro ao responder o socket!");
+					exception.printStackTrace();
 				}
 			} else {
 				processCommand(command, input);
 				try {
 					sendSocketMessage(socket, "Mensagem recebida e executada!");
 				} catch (Exception exception) {
-					LogComponents.logException(exception, "Ocorreu um erro ao responder o socket!");
+					exception.printStackTrace();
 				}
 			}
 		} catch (Exception exception) {
-			LogComponents.logException(exception, "Ocorreu um erro ao processar a mensagem do socket!");
+			exception.printStackTrace();
 		}
 	}
 
@@ -135,7 +133,7 @@ public abstract class SocketServer implements SocketBuffer {
 				Socket socket = getSocketServerConnection().accept();
 				preProcessCommand(socket, socket.getInputStream());
 			} catch (Exception exception) {
-				LogComponents.logException(exception, "Ocorreu um erro ao receber uma nova conexão socket!");
+				exception.printStackTrace();
 			}
 		}
 	}
