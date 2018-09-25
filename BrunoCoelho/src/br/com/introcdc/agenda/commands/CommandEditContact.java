@@ -18,14 +18,14 @@ public class CommandEditContact extends ConsoleCommandBase {
 
 	@Override
 	public CommandResult executeCommand(Scanner scanner) {
-		String contactName = requestInfomation("Nome do contato", scanner);
+		String contactName = requestInformation("Nome do contato", scanner);
 		if (ContactService.searchForContact(contactName) == null) {
 			System.out.println("Contato não encontrado!");
 			return CommandResult.ERROR;
 		}
 		Contact contact = ContactService.searchForContact(contactName);
-		String email = requestInfomation("Novo email (caso não queira mudar, digite 'nao')", scanner);
-		String number = requestInfomation("Novo número (caso não queira mudar, digite 'nao')", scanner);
+		String email = requestInformation("Novo email (caso não queira mudar, digite 'nao')", scanner);
+		String number = requestInformation("Novo número (caso não queira mudar, digite 'nao')", scanner);
 		ContactService.configContact(contact, !email.equalsIgnoreCase("nao") ? email : null,
 				!number.equalsIgnoreCase("nao") ? number : null);
 		Contact.saveContactFile();

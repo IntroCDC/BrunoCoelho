@@ -6,16 +6,18 @@ import br.com.introcdc.college.course.Course;
 import br.com.introcdc.global.command.ConsoleSubCommandBase;
 import br.com.introcdc.global.command.result.CommandResult;
 
-public class SubCommandCourseInfo extends ConsoleSubCommandBase {
+public class SubCommandListCourses extends ConsoleSubCommandBase {
 
 	@Override
 	public CommandResult onExecute(Scanner scanner) {
-		String courseName = requestInformation("Nome do Curse", scanner);
-		if (Course.getCourse(courseName) == null) {
-			System.out.println("Curso não encontrado!");
+		if (Course.getAllCourses().isEmpty()) {
+			System.out.println("Não há cursos registrados!");
 			return CommandResult.ERROR;
 		}
-		Course.getCourse(courseName).showCourseInfo();
+		System.out.println("Cursos:");
+		for (Course course : Course.getAllCourses().values()) {
+			System.out.println("  |-- " + course.getName() + " (" + course.getTeacher().getContact().getName() + ")");
+		}
 		return CommandResult.OK;
 	}
 

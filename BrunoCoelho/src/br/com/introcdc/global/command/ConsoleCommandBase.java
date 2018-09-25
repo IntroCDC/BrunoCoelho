@@ -46,7 +46,7 @@ public abstract class ConsoleCommandBase {
 	 *            the scanner to get information
 	 * @return the information typed by user
 	 */
-	public static String requestInfomation(String infomation, Scanner scanner) {
+	public static String requestInformation(String infomation, Scanner scanner) {
 		System.out.print("Digite " + infomation + ": ");
 		return scanner.nextLine();
 	}

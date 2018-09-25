@@ -8,8 +8,8 @@ public abstract class ConsoleSubCommandBase {
 	
 	public abstract CommandResult onExecute(Scanner scanner);
 	
-	public static String requestInfomation(String infomation, Scanner scanner) {
-		return ConsoleCommandBase.requestInfomation(infomation, scanner);
+	public static String requestInformation(String infomation, Scanner scanner) {
+		return ConsoleCommandBase.requestInformation(infomation, scanner);
 	}
 
 }

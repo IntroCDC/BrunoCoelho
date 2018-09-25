@@ -18,7 +18,7 @@ public class CommandContactInfo extends ConsoleCommandBase {
 
 	@Override
 	public CommandResult executeCommand(Scanner scanner) {
-		String contactName = requestInfomation("Nome do contato", scanner);
+		String contactName = requestInformation("Nome do contato", scanner);
 		if (ContactService.searchForContact(contactName) == null) {
 			System.out.println("Contato não encontrado!");
 			return CommandResult.ERROR;

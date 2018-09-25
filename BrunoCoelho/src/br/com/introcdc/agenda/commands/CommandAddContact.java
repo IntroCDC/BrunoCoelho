@@ -17,13 +17,13 @@ public class CommandAddContact extends ConsoleCommandBase {
 
 	@Override
 	public CommandResult executeCommand(Scanner scanner) {
-		String contactName = requestInfomation("Nome do contato", scanner);
+		String contactName = requestInformation("Nome do contato", scanner);
 		if (ContactService.searchForContact(contactName) != null) {
 			System.out.println("Contato já existente!");
 			return CommandResult.ERROR;
 		}
-		String email = requestInfomation("Email", scanner);
-		String number = requestInfomation("Numero", scanner);
+		String email = requestInformation("Email", scanner);
+		String number = requestInformation("Numero", scanner);
 		ContactService.addContact(contactName, email, number);
 		System.out.println("Contato '" + contactName + "' (" + email + " - " + number + ") adicionado!");
 		return CommandResult.OK;
