@@ -2,6 +2,7 @@ package br.com.introcdc.global.command;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 import br.com.introcdc.global.command.result.CommandResult;
 
@@ -24,7 +25,6 @@ public abstract class ConsoleCommandBase {
 	}
 
 	private String command;
-	protected String correctUse;
 
 	public ConsoleCommandBase(String command) {
 		this.command = command;
@@ -37,10 +37,20 @@ public abstract class ConsoleCommandBase {
 		return command;
 	}
 
-	public String getCorrectUse() {
-		return correctUse;
+	/**
+	 * Request infomation to user
+	 * 
+	 * @param infomation
+	 *            the information to print
+	 * @param scanner
+	 *            the scanner to get information
+	 * @return the information typed by user
+	 */
+	public String requestInfomation(String infomation, Scanner scanner) {
+		System.out.print("Digite o " + infomation + ": ");
+		return scanner.nextLine();
 	}
 
-	public abstract CommandResult executeCommand(String[] args);
+	public abstract CommandResult executeCommand(Scanner scanner);
 
 }

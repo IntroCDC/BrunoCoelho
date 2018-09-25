@@ -3,7 +3,7 @@ package br.com.introcdc.global.starter;
 import java.util.Scanner;
 
 import br.com.introcdc.agenda.starter.AgendaStarter;
-import br.com.introcdc.college.server.starter.CollegeServerStarter;
+import br.com.introcdc.college.starter.CollegeManagerStarter;
 import br.com.introcdc.global.starter.settings.StarterSettings;
 
 public class GlobalStarter {
@@ -15,8 +15,7 @@ public class GlobalStarter {
 		System.out.println("Escolha um programa...");
 		System.out.println("");
 		System.out.println("1: Agenda");
-		System.out.println("2.1: Servidor de gerenciador de faculdade");
-		System.out.println("2.2: Cliente de gerenciador de faculdade");
+		System.out.println("2: Gerenciador de faculdade");
 		Scanner scanner = new Scanner(System.in);
 		String program = scanner.nextLine().toLowerCase();
 
@@ -27,8 +26,8 @@ public class GlobalStarter {
 			selectedStarter = new AgendaStarter();
 			break;
 
-		case "2.1":
-			selectedStarter = new CollegeServerStarter();
+		case "2":
+			selectedStarter = new CollegeManagerStarter();
 			break;
 
 		default:

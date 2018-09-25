@@ -1,5 +1,7 @@
 package br.com.introcdc.global.commands;
 
+import java.util.Scanner;
+
 import br.com.introcdc.global.command.ConsoleCommandBase;
 import br.com.introcdc.global.command.result.CommandResult;
 
@@ -13,7 +15,7 @@ public class CommandHelp extends ConsoleCommandBase {
 	}
 
 	@Override
-	public CommandResult executeCommand(String[] args) {
+	public CommandResult executeCommand(Scanner scanner) {
 		StringBuilder builder = new StringBuilder("Comandos: ");
 		for(ConsoleCommandBase command : ConsoleCommandBase.getCommands().values()) {
 			builder.append(command.getCommand()).append(", ");

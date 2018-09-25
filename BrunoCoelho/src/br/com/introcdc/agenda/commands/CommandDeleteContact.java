@@ -1,5 +1,7 @@
 package br.com.introcdc.agenda.commands;
 
+import java.util.Scanner;
+
 import br.com.introcdc.agenda.contact.Contact;
 import br.com.introcdc.agenda.contact.service.ContactService;
 import br.com.introcdc.global.command.ConsoleCommandBase;
@@ -12,22 +14,19 @@ public class CommandDeleteContact extends ConsoleCommandBase {
 
 	public CommandDeleteContact() {
 		super("deletecontact");
-		this.correctUse = "%command% [Nome]";
 	}
 
 	@Override
-	public CommandResult executeCommand(String[] args) {
-		if (args.length >= 1) {
-			if (ContactService.searchForContact(args[0]) == null) {
-				System.out.println("Contato não encontrado!");
-				return CommandResult.ERROR;
-			}
-			Contact contact = new Contact(args[0]);
-			ContactService.deleteContact(contact);
-			System.out.println("Contato '" + contact.getName() + "' deletado!");
-			return CommandResult.OK;
+	public CommandResult executeCommand(Scanner scanner) {
+		String contactName = requestInfomation("Nome do contato", scanner);
+		if (ContactService.searchForContact(contactName) == null) {
+			System.out.println("Contato não encontrado!");
+			return CommandResult.ERROR;
 		}
-		return CommandResult.CORRECT_USE;
+		Contact contact = new Contact(contactName);
+		ContactService.deleteContact(contact);
+		System.out.println("Contato '" + contact.getName() + "' deletado!");
+		return CommandResult.OK;
 	}
 
 }

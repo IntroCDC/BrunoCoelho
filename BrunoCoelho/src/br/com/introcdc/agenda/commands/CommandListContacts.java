@@ -1,5 +1,7 @@
 package br.com.introcdc.agenda.commands;
 
+import java.util.Scanner;
+
 import br.com.introcdc.agenda.contact.Contact;
 import br.com.introcdc.global.command.ConsoleCommandBase;
 import br.com.introcdc.global.command.result.CommandResult;
@@ -14,7 +16,7 @@ public class CommandListContacts extends ConsoleCommandBase {
 	}
 
 	@Override
-	public CommandResult executeCommand(String[] args) {
+	public CommandResult executeCommand(Scanner scanner) {
 		if(Contact.getAllContacts().isEmpty()) {
 			System.out.println("Não há nenhum contato registrado!");
 			return CommandResult.ERROR;
