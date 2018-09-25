@@ -1,7 +1,9 @@
 package br.com.introcdc.college.student;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import br.com.introcdc.college.contact.CollegeContact;
 import br.com.introcdc.college.course.Course;
@@ -10,6 +12,12 @@ import br.com.introcdc.college.situation.Situation;
 import br.com.introcdc.global.GlobalUtils;
 
 public class Student extends CollegeContact {
+
+	private static Map<String, Student> allStudents = new HashMap<>();
+
+	public static Map<String, Student> getAllStudents() {
+		return allStudents;
+	}
 
 	private Course course;
 	private String registration;
@@ -28,7 +36,7 @@ public class Student extends CollegeContact {
 	 */
 	public List<Discipline> getDisciplines() {
 		List<Discipline> disciplines = new ArrayList<>();
-		for (Discipline discipline : Discipline.getAllDisciplines()) {
+		for (Discipline discipline : Discipline.getAllDisciplines().values()) {
 			if (discipline.getStudents().containsKey(this)) {
 				disciplines.add(discipline);
 			}
@@ -81,6 +89,10 @@ public class Student extends CollegeContact {
 			}
 		}
 		System.out.println("============= ALUNO =============");
+	}
+	
+	public void register() {
+		allStudents.put(getContact().getName(), this);
 	}
 
 }

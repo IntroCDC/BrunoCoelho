@@ -1,8 +1,6 @@
 package br.com.introcdc.college.discipline;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import br.com.introcdc.college.situation.Situation;
@@ -14,10 +12,17 @@ import br.com.introcdc.college.teacher.Teacher;
  */
 public class Discipline {
 
-	private static List<Discipline> allDisciplines = new ArrayList<>();
+	private static Map<String, Discipline> allDisciplines = new HashMap<>();
 
-	public static List<Discipline> getAllDisciplines() {
+	public static Map<String, Discipline> getAllDisciplines() {
 		return allDisciplines;
+	}
+
+	public static Discipline getDiscipline(String name) {
+		if (allDisciplines.containsKey(name)) {
+			return allDisciplines.get(name);
+		}
+		return null;
 	}
 
 	private String name;
@@ -34,7 +39,6 @@ public class Discipline {
 		this.room = room;
 		this.hour = hour;
 		this.costs = costs;
-		allDisciplines.add(this);
 	}
 
 	public String getName() {
@@ -59,6 +63,10 @@ public class Discipline {
 
 	public int getCosts() {
 		return costs;
+	}
+	
+	public void register() {
+		allDisciplines.put(name, this);
 	}
 
 }

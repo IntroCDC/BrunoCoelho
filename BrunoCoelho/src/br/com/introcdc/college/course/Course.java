@@ -1,26 +1,37 @@
 package br.com.introcdc.college.course;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import br.com.introcdc.college.discipline.Discipline;
 import br.com.introcdc.college.teacher.Teacher;
 
 /**
- * All default and already setted courses
+ * Class base for course
  */
-public enum Course {
-	DIREITO("Direito", 1001),
-	ADMINISTRACAO("Administração", 1002),
-	REDES("Redes de Computadores", 2001),
-	SISTEMAS("Sistemas de Informação", 2002);
+public class Course {
+
+	private static Map<String, Course> allCourses = new HashMap<>();
+
+	public static Map<String, Course> getAllCourses() {
+		return allCourses;
+	}
+
+	public static Course getCourse(String name) {
+		if (allCourses.containsKey(name)) {
+			return allCourses.get(name);
+		}
+		return null;
+	}
 
 	private String name;
 	private int id;
 	private Teacher teacher;
 	private List<Discipline> disciplines = new ArrayList<>();
 
-	Course(String name, int id) {
+	public Course(String name, int id) {
 		this.name = name;
 		this.id = id;
 	}
@@ -43,6 +54,27 @@ public enum Course {
 
 	public List<Discipline> getDisciplines() {
 		return disciplines;
+	}
+
+	public void showCourseInfo() {
+		System.out.println();
+		System.out.println("============= CURSO =============");
+		System.out.println("Nome: " + getName());
+		System.out.println("Código: " + getId());
+		System.out.println("Professor Coordenador: " + getTeacher().getContact().getName());
+		int students = 0;
+		System.out.println("Disciplinas: ");
+		for (Discipline discipline : getDisciplines()) {
+			students += discipline.getStudents().size();
+			System.out.println(
+					"  |-- " + discipline.getName() + " (" + discipline.getTeacher().getContact().getName() + ")");
+		}
+		System.out.println("Alunos: " + students);
+		System.out.println("============= CURSO =============");
+	}
+
+	public void register() {
+		allCourses.put(name, this);
 	}
 
 }
