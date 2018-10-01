@@ -30,7 +30,7 @@ public class SubCommandListStudents extends ConsoleSubCommandBase {
 			System.out.println("Curso: " + course.getName());
 			for (Student student : map.get(course)) {
 				System.out.println(
-						"  |-- " + student.getContact().getName() + " (" + student.getSituation().toString() + ")");
+						"  |-- " + student.getContact().getName() + " (" + student.getSituation().getName() + ")");
 			}
 		}
 		return CommandResult.OK;

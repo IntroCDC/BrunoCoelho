@@ -30,15 +30,11 @@ public class Discipline {
 	private Map<Student, Situation> students = new HashMap<>();
 
 	private int room;
-	private boolean hour;
+	private boolean moreHour;
 	private int costs;
 
-	public Discipline(String name, Teacher teacher, int room, boolean hour, int costs) {
+	public Discipline(String name) {
 		this.name = name;
-		this.teacher = teacher;
-		this.room = room;
-		this.hour = hour;
-		this.costs = costs;
 	}
 
 	public String getName() {
@@ -49,6 +45,10 @@ public class Discipline {
 		return teacher;
 	}
 
+	public void setTeacher(Teacher teacher) {
+		this.teacher = teacher;
+	}
+
 	public Map<Student, Situation> getStudents() {
 		return students;
 	}
@@ -57,16 +57,51 @@ public class Discipline {
 		return room;
 	}
 
-	public boolean isHour() {
-		return hour;
+	public void setRoom(int room) {
+		this.room = room;
+	}
+
+	public boolean isMoreHour() {
+		return moreHour;
+	}
+
+	public void setMoreHour(boolean moreHour) {
+		this.moreHour = moreHour;
 	}
 
 	public int getCosts() {
 		return costs;
 	}
-	
+
+	public void setCosts(int costs) {
+		this.costs = costs;
+	}
+
+	public void showDisciplineInfo() {
+		System.out.println("============= DISCIPLINA =============");
+		System.out.println("Nome: " + getName());
+		System.out.println("Professor: " + getTeacher().getContact().getName());
+		System.out.println("Sala: " + getRoom());
+		System.out.println("Carga horária: " + (isMoreHour() ? "4" : "2") + " horas por semana");
+		System.out.println("Valor: R$" + getCosts());
+		System.out.println("Estudantes: ");
+		if (getStudents().isEmpty()) {
+			System.out.println("Não há estudantes registrados nesta disciplina!");
+		} else {
+			for (Student student : getStudents().keySet()) {
+				System.out.println(
+						"  |-- " + student.getContact().getName() + " (" + getStudents().get(student).getName() + ")");
+			}
+		}
+		System.out.println("============= DISCIPLINA =============");
+	}
+
 	public void register() {
 		allDisciplines.put(name, this);
+	}
+
+	public void unregister() {
+		allDisciplines.remove(name);
 	}
 
 }

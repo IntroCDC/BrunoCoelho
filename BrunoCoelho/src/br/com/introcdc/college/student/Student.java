@@ -86,13 +86,12 @@ public class Student extends CollegeContact {
 		System.out.println("CPF: " + getCpf());
 		System.out.println("Endereço: " + getAddress());
 		System.out.println("Curso: " + getCourse().getName());
-		System.out.println("Situação: " + (getSituation().equals(Situation.PENDENT) ? "Pentende" : "Matriculado"));
+		System.out.println("Situação: " + getSituation().getName());
 		if (getSituation().equals(Situation.REGISTRERED)) {
 			System.out.println("Disciplinas:");
 			for (Discipline discipline : getDisciplines()) {
-				System.out.println("  |-- " + discipline.getName() + " ("
-						+ (discipline.getStudents().get(this).equals(Situation.PENDENT) ? "Pentende" : "Matriculado")
-						+ ")");
+				System.out.println(
+						"  |-- " + discipline.getName() + " (" + discipline.getStudents().get(this).getName() + ")");
 			}
 		}
 		System.out.println("============= ALUNO =============");
