@@ -8,6 +8,9 @@ import br.com.introcdc.global.starter.settings.StarterSettings;
 
 public class CollegeManagerStarter extends StarterSettings {
 
+	/**
+	 * College Manager Starter settings
+	 */
 	@Override
 	public void main(Scanner scanner) {
 		System.out.println("Gerenciador de faculdade FLF 2018\n");

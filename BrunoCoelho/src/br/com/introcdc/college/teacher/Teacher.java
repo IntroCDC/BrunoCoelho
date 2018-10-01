@@ -12,6 +12,9 @@ import br.com.introcdc.college.teacher.category.TeacherCategory;
 
 public class Teacher extends CollegeContact {
 
+	/**
+	 * Local cache for teachers
+	 */
 	private static Map<String, Teacher> allTeachers = new HashMap<>();
 
 	public static Map<String, Teacher> getAllTeachers() {
@@ -82,6 +85,9 @@ public class Teacher extends CollegeContact {
 		System.out.println();
 	}
 
+	/**
+	 * Only add in hashmap
+	 */
 	public void register() {
 		allTeachers.put(getContact().getName(), this);
 	}

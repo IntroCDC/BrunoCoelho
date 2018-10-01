@@ -6,6 +6,9 @@ import br.com.introcdc.agenda.starter.AgendaStarter;
 import br.com.introcdc.college.starter.CollegeManagerStarter;
 import br.com.introcdc.global.starter.settings.StarterSettings;
 
+/**
+ * Global Program starter, Program selector, Multiple programs support
+ */
 public class GlobalStarter {
 
 	public static void main(String[] args) {

@@ -6,6 +6,9 @@ import br.com.introcdc.college.discipline.Discipline;
 import br.com.introcdc.global.command.ConsoleSubCommandBase;
 import br.com.introcdc.global.command.result.CommandResult;
 
+/**
+ * Class for sub command to send to method info
+ */
 public class SubCommandDisciplineInfo extends ConsoleSubCommandBase {
 
 	@Override

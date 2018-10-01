@@ -7,6 +7,9 @@ import br.com.introcdc.college.teacher.Teacher;
 import br.com.introcdc.global.command.ConsoleSubCommandBase;
 import br.com.introcdc.global.command.result.CommandResult;
 
+/**
+ * Class for sub command to edit discipline
+ */
 public class SubCommandEditDiscipline extends ConsoleSubCommandBase {
 
 	@Override

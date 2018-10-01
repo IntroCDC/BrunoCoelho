@@ -9,10 +9,13 @@ import br.com.introcdc.college.discipline.Discipline;
 import br.com.introcdc.college.teacher.Teacher;
 
 /**
- * Class base for course
+ * Class base for course information
  */
 public class Course {
 
+	/**
+	 * Local cache for courses
+	 */
 	private static Map<String, Course> allCourses = new HashMap<>();
 
 	public static Map<String, Course> getAllCourses() {
@@ -64,6 +67,9 @@ public class Course {
 		return costs;
 	}
 
+	/**
+	 * Show course's info on console
+	 */
 	public void showCourseInfo() {
 		System.out.println();
 		System.out.println("============= CURSO =============");
@@ -82,6 +88,9 @@ public class Course {
 		System.out.println("============= CURSO =============");
 	}
 
+	/**
+	 * Only add in hashmap
+	 */
 	public void register() {
 		allCourses.put(name, this);
 	}

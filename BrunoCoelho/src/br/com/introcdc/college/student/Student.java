@@ -11,8 +11,14 @@ import br.com.introcdc.college.discipline.Discipline;
 import br.com.introcdc.college.situation.Situation;
 import br.com.introcdc.global.GlobalUtils;
 
+/**
+ * Class for student's information
+ */
 public class Student extends CollegeContact {
 
+	/**
+	 * Local cache for students
+	 */
 	private static Map<String, Student> allStudents = new HashMap<>();
 
 	public static Map<String, Student> getAllStudents() {
@@ -97,6 +103,9 @@ public class Student extends CollegeContact {
 		System.out.println("============= ALUNO =============");
 	}
 
+	/**
+	 * Only add in hashmap
+	 */
 	public void register() {
 		allStudents.put(getContact().getName(), this);
 	}

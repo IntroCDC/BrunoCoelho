@@ -10,6 +10,9 @@ import br.com.introcdc.college.commands.teachers.subcommands.SubCommandTeacherIn
 import br.com.introcdc.global.command.ConsoleCommandBase;
 import br.com.introcdc.global.command.result.CommandResult;
 
+/**
+ * Class for command base for teachers sub commands
+ */
 public class CommandTeachers extends ConsoleCommandBase {
 
 	public SubCommandAddTeacher subCommandAddTeacher = new SubCommandAddTeacher();

@@ -11,6 +11,9 @@ import br.com.introcdc.global.GlobalUtils;
 import br.com.introcdc.global.command.ConsoleSubCommandBase;
 import br.com.introcdc.global.command.result.CommandResult;
 
+/**
+ * Class for sub command to add course and register
+ */
 public class SubCommandAddCourse extends ConsoleSubCommandBase {
 
 	@Override

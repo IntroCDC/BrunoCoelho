@@ -6,6 +6,9 @@ import br.com.introcdc.college.course.Course;
 import br.com.introcdc.global.command.ConsoleSubCommandBase;
 import br.com.introcdc.global.command.result.CommandResult;
 
+/**
+ * Class for sub command to list all registered courses
+ */
 public class SubCommandListCourses extends ConsoleSubCommandBase {
 
 	@Override

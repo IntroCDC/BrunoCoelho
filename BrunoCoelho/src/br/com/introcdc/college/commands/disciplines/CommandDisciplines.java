@@ -10,6 +10,9 @@ import br.com.introcdc.college.commands.disciplines.subcommands.SubCommandListDi
 import br.com.introcdc.global.command.ConsoleCommandBase;
 import br.com.introcdc.global.command.result.CommandResult;
 
+/**
+ * Class for command base to disciplines sub commands
+ */
 public class CommandDisciplines extends ConsoleCommandBase {
 
 	public SubCommandAddDiscipline subCommandAddDiscipline = new SubCommandAddDiscipline();

@@ -6,6 +6,9 @@ import br.com.introcdc.college.teacher.Teacher;
 import br.com.introcdc.global.command.ConsoleSubCommandBase;
 import br.com.introcdc.global.command.result.CommandResult;
 
+/**
+ * Class for sub command to list all teachers
+ */
 public class SubCommandListTeachers extends ConsoleSubCommandBase {
 
 	@Override

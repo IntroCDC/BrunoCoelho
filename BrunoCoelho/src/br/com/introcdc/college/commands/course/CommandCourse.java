@@ -10,6 +10,9 @@ import br.com.introcdc.college.commands.course.subcommands.SubCommandListCourses
 import br.com.introcdc.global.command.ConsoleCommandBase;
 import br.com.introcdc.global.command.result.CommandResult;
 
+/**
+ * Class for command base to course sub commands
+ */
 public class CommandCourse extends ConsoleCommandBase {
 
 	public SubCommandAddCourse subCommandAddCourse = new SubCommandAddCourse();

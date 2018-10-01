@@ -7,6 +7,9 @@ import br.com.introcdc.college.teacher.category.TeacherCategory;
 import br.com.introcdc.global.command.ConsoleSubCommandBase;
 import br.com.introcdc.global.command.result.CommandResult;
 
+/**
+ * Class for sub command to edit teacher informations
+ */
 public class SubCommandEditTeacher extends ConsoleSubCommandBase {
 
 	@Override

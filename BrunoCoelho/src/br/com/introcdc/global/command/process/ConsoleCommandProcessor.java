@@ -14,6 +14,12 @@ public class ConsoleCommandProcessor {
 
 	private static boolean consoleEnabled = false;
 
+	/**
+	 * Start console and listener for main Scanner
+	 * 
+	 * @param scanner
+	 *            the main scanner
+	 */
 	public static void enableConsole(Scanner scanner) {
 		consoleEnabled = true;
 		new CommandShutdown();

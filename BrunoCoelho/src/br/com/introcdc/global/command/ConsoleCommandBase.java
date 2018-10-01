@@ -11,6 +11,9 @@ import br.com.introcdc.global.command.result.CommandResult;
  */
 public abstract class ConsoleCommandBase {
 
+	/**
+	 * Local cache for commmands bases
+	 */
 	private static Map<String, ConsoleCommandBase> commands = new HashMap<>();
 
 	public static Map<String, ConsoleCommandBase> getCommands() {

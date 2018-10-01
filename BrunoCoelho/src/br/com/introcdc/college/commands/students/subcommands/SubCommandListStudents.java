@@ -11,6 +11,9 @@ import br.com.introcdc.college.student.Student;
 import br.com.introcdc.global.command.ConsoleSubCommandBase;
 import br.com.introcdc.global.command.result.CommandResult;
 
+/**
+ * Class for sub command to list all students and their courses 
+ */
 public class SubCommandListStudents extends ConsoleSubCommandBase {
 
 	@Override

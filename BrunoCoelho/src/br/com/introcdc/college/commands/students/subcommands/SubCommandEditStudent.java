@@ -6,6 +6,9 @@ import br.com.introcdc.college.student.Student;
 import br.com.introcdc.global.command.ConsoleSubCommandBase;
 import br.com.introcdc.global.command.result.CommandResult;
 
+/**
+ * Class for sub command to edit student
+ */
 public class SubCommandEditStudent extends ConsoleSubCommandBase {
 
 	@Override

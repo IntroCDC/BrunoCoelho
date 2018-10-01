@@ -6,6 +6,9 @@ import br.com.introcdc.college.discipline.Discipline;
 import br.com.introcdc.global.command.ConsoleSubCommandBase;
 import br.com.introcdc.global.command.result.CommandResult;
 
+/**
+ * Class for sub command to list all disciplines
+ */
 public class SubCommandListDisciplines extends ConsoleSubCommandBase {
 
 	@Override
