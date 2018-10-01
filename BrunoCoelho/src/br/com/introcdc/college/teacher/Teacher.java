@@ -86,4 +86,8 @@ public class Teacher extends CollegeContact {
 		allTeachers.put(getContact().getName(), this);
 	}
 
+	public void unregister() {
+		allTeachers.remove(getContact().getName());
+	}
+
 }

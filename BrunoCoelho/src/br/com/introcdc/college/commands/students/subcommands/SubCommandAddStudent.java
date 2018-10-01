@@ -27,6 +27,7 @@ public class SubCommandAddStudent extends ConsoleSubCommandBase {
 		student.setAddress(requestInformation("Endereço do estudante", scanner));
 		student.getContact().setEmail(requestInformation("Email do estudante", scanner));
 		student.getContact().setNumber(requestInformation("Número do estudante", scanner));
+		student.register();
 		System.out.println("Estudante registrado!");
 		return CommandResult.OK;
 	}
