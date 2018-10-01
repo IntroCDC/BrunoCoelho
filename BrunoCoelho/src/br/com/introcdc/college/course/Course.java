@@ -56,12 +56,21 @@ public class Course {
 		return disciplines;
 	}
 
+	public int getCurseCost() {
+		int costs = 0;
+		for (Discipline discipline : getDisciplines()) {
+			costs += discipline.getCosts();
+		}
+		return costs;
+	}
+
 	public void showCourseInfo() {
 		System.out.println();
 		System.out.println("============= CURSO =============");
 		System.out.println("Nome: " + getName());
 		System.out.println("Código: " + getId());
 		System.out.println("Professor Coordenador: " + getTeacher().getContact().getName());
+		System.out.println("Valor mensal: R$ " + getCurseCost());
 		int students = 0;
 		System.out.println("Disciplinas: ");
 		for (Discipline discipline : getDisciplines()) {

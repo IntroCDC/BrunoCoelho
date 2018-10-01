@@ -19,6 +19,13 @@ public class Student extends CollegeContact {
 		return allStudents;
 	}
 
+	public static Student getStudent(String name) {
+		if (allStudents.containsKey(name)) {
+			return allStudents.get(name);
+		}
+		return null;
+	}
+
 	private Course course;
 	private String registration;
 
@@ -90,9 +97,16 @@ public class Student extends CollegeContact {
 		}
 		System.out.println("============= ALUNO =============");
 	}
-	
+
 	public void register() {
 		allStudents.put(getContact().getName(), this);
+	}
+
+	public void unregister() {
+		for (Discipline discipline : getDisciplines()) {
+			discipline.getStudents().remove(this);
+		}
+		allStudents.remove(getContact().getName());
 	}
 
 }

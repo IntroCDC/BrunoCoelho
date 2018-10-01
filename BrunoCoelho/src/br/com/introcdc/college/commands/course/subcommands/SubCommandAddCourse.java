@@ -15,7 +15,7 @@ public class SubCommandAddCourse extends ConsoleSubCommandBase {
 
 	@Override
 	public CommandResult onExecute(Scanner scanner) {
-		String courseName = requestInformation("Nome do Curse", scanner);
+		String courseName = requestInformation("Nome do Curso", scanner);
 		if (Course.getCourse(courseName) != null) {
 			System.out.println("Este curso já existe!");
 			return CommandResult.ERROR;
@@ -23,24 +23,12 @@ public class SubCommandAddCourse extends ConsoleSubCommandBase {
 
 		Course course = new Course(courseName, GlobalUtils.RANDOM.nextInt(10000));
 
-		Teacher teacher = null;
-		int tries = 0;
-		while (teacher == null) {
-			String teacherName = requestInformation("Nome de um professor para coordenador", scanner);
-			if (Teacher.getTeacher(teacherName) != null) {
-				teacher = Teacher.getTeacher(teacherName);
-				System.out.println("Professor definido!");
-			} else {
-				System.out.println("Professor não encontrado!");
-				tries++;
-				if (tries > 5) {
-					System.out.println("Não foi possível registrar o curso!");
-					System.out.println("Nenhum professor foi escolhido como coordenador!");
-					return CommandResult.ERROR;
-				}
-			}
+		String teacherName = requestInformation("Nome de um professor para coordenador", scanner);
+		if (Teacher.getTeacher(teacherName) == null) {
+			return CommandResult.ERROR;
 		}
-		course.setTeacher(teacher);
+		course.setTeacher(Teacher.getTeacher(teacherName));
+		System.out.println("Professor definido!");
 
 		List<Discipline> disciplines = new ArrayList<>();
 		boolean end = false;

@@ -26,10 +26,9 @@ public class SubCommandEditCourse extends ConsoleSubCommandBase {
 			if (Teacher.getTeacher(newTeacher) == null) {
 				System.out.println("Professor não encontrado!");
 				return CommandResult.ERROR;
-			} else {
-				course.setTeacher(Teacher.getTeacher(newTeacher));
-				System.out.println("Professor coordenador alterado!");
 			}
+			course.setTeacher(Teacher.getTeacher(newTeacher));
+			System.out.println("Professor coordenador alterado!");
 		}
 
 		String removeDiscipline;
