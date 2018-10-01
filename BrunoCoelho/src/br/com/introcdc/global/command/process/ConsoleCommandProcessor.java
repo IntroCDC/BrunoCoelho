@@ -14,9 +14,8 @@ public class ConsoleCommandProcessor {
 
 	private static boolean consoleEnabled = false;
 
-	public static void enableConsole() {
+	public static void enableConsole(Scanner scanner) {
 		consoleEnabled = true;
-		Scanner scanner = new Scanner(System.in);
 		new CommandShutdown();
 		new CommandHelp();
 		while (consoleEnabled) {

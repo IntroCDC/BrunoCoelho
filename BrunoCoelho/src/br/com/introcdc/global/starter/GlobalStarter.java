@@ -17,6 +17,8 @@ public class GlobalStarter {
 		System.out.println("1: Agenda");
 		System.out.println("2: Gerenciador de faculdade");
 		Scanner scanner = new Scanner(System.in);
+		System.out.println("");
+		System.out.print("> ");
 		String program = scanner.nextLine().toLowerCase();
 
 		StarterSettings selectedStarter = null;
@@ -34,10 +36,10 @@ public class GlobalStarter {
 			System.out.println("Programa desconhecido!");
 			break;
 		}
-		scanner.close();
 
+		System.out.println();
 		if (selectedStarter != null) {
-			selectedStarter.main(args);
+			selectedStarter.main(scanner);
 		}
 	}
 
