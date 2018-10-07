@@ -1,5 +1,6 @@
 package br.com.introcdc.global.starter;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 import br.com.introcdc.agenda.starter.AgendaStarter;
@@ -12,6 +13,23 @@ import br.com.introcdc.global.starter.settings.StarterSettings;
 public class GlobalStarter {
 
 	public static void main(String[] args) {
+		
+		String[] allArgs = new String[] {"Introo", "oi", "tudo", "bem"};
+		
+		String total = "";
+		
+		for(String arg : allArgs) {
+			if(!arg.equals(allArgs[0])) {
+				total += arg + " ";
+			}
+		}
+		
+		System.out.println(total);
+		
+		if(Boolean.TRUE) {
+			return;
+		}
+		
 		System.out.println("Projeto para trabalhos do Bruno Coêlho - FLF 2018.2");
 		System.out.println();
 

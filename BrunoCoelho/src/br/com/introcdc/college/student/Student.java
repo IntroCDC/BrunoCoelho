@@ -38,8 +38,6 @@ public class Student extends CollegeContact {
 	public Student(String name, Course course) {
 		super(name);
 		this.course = course;
-		this.registration = course.getId() + getCpf().substring(10, getCpf().length()).replace("-", "")
-				+ GlobalUtils.CURRENT_YEAR;
 	}
 
 	/**
@@ -107,6 +105,8 @@ public class Student extends CollegeContact {
 	 * Only add in hashmap
 	 */
 	public void register() {
+		this.registration = course.getId() + getCpf().substring(10, getCpf().length()).replace("-", "")
+				+ GlobalUtils.CURRENT_YEAR;
 		allStudents.put(getContact().getName(), this);
 	}
 
