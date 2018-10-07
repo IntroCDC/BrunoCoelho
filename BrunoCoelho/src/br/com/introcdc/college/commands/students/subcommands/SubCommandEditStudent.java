@@ -2,6 +2,8 @@ package br.com.introcdc.college.commands.students.subcommands;
 
 import java.util.Scanner;
 
+import br.com.introcdc.college.discipline.Discipline;
+import br.com.introcdc.college.situation.Situation;
 import br.com.introcdc.college.student.Student;
 import br.com.introcdc.global.command.ConsoleSubCommandBase;
 import br.com.introcdc.global.command.result.CommandResult;
@@ -37,6 +39,28 @@ public class SubCommandEditStudent extends ConsoleSubCommandBase {
 			student.getContact().setNumber(newNumber);
 			System.out.println("Número atualizado!");
 		}
+
+		String discipline = "";
+		do {
+			discipline = requestInformation(
+					"Editar situação em alguma disciplina? (Caso não queira mudar, digite 'nao')", scanner);
+			if(Discipline.getDiscipline(discipline) != null) {
+				if(Discipline.getDiscipline(discipline).getStudents().containsKey(student)) {
+					String situation = requestInformation("Nova situação para o estudante! (Pendente ou Matriculado)", scanner);
+					if(situation.equalsIgnoreCase("matriculado")) {
+						Discipline.getDiscipline(discipline).getStudents().replace(student, Situation.REGISTRERED);
+						System.out.println("Situação do aluno alterada para Matriculado na disciplina '" + discipline + "'!");
+					} else {
+						Discipline.getDiscipline(discipline).getStudents().replace(student, Situation.PENDENT);
+						System.out.println("Situação do aluno alterada para Pendente na disciplina '" + discipline + "'!");
+					}
+				} else {
+					System.out.println("Este aluno não está registrada nesta disciplina!");
+				}
+			} else {
+				System.out.println("Disciplina não encontrada!");
+			}
+		} while (!discipline.equalsIgnoreCase("nao"));
 
 		System.out.println("Registro do aluno atualizado!");
 		return CommandResult.OK;

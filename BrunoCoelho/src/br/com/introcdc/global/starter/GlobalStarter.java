@@ -1,6 +1,5 @@
 package br.com.introcdc.global.starter;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 import br.com.introcdc.agenda.starter.AgendaStarter;
